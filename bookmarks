@@ -1,0 +1,6 @@
+#!/bin/bash
+url=$(rofi -dmenu -input "$1")
+if [ ! -z "$url" ] ;
+then
+   chrome "$url"
+fi

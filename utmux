@@ -1,0 +1,3 @@
+#!/bin/bash
+session_name=$USER@$(hostname)
+urxvt -e bash -c "tmux attach-session -t $session_name || exec tmux new-session -n$USER -s$session_name"

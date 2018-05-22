@@ -1,0 +1,8 @@
+#time=$(TZ=/usr/share/zoneinfo/Australia/Melbourne date +%H:%M)
+#notify-send "Mebourne Time" "<i>$time</i>" -i au
+time=$(TZ=/usr/share/zoneinfo/Europe/Kiev date +%H:%M)
+notify-send "Kiev Time" "<i>$time</i>" -i ukraine
+time=$(TZ=/usr/share/zoneinfo/Europe/Paris date +%H:%M)
+notify-send "Paris Time" "<i>$time</i>" -i france
+time=$(TZ=/usr/share/zoneinfo/America/Bogota date +%H:%M)
+notify-send "Colombia Time" "<i>$time</i>" -i colombia

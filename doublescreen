@@ -1,0 +1,12 @@
+#!/bin/bash
+screen_num=$(xrandr | grep ' connected ' | wc -l)
+screen01=eDP1
+screen02=HDMI1
+
+echo $screen_num
+if [ $screen_num -eq 2 ] ;
+then
+   xrandr --output $screen01 --auto --output $screen02 --auto --left-of $screen01
+else
+   xrandr --output $screen01 --auto --output $screen02 --off
+fi

@@ -1,0 +1,2 @@
+#!/bin/bash
+amixer get Master | grep '%' | head -1 | sed -E 's/.*\[([0-9]+)%\].*/\1/g' 

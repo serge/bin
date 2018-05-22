@@ -1,0 +1,13 @@
+#!/bin/bash
+
+vim=/usr/bin/vim
+SERVERNAME=VIM
+
+resp=$($vim --serverlist | grep -x $SERVERNAME)
+
+if [ $? -ne 0 ] 
+then
+   i3-msg -q "exec urxvt -title mainvim -e $vim --servername $SERVERNAME"
+   sleep 1s
+fi
+$vim --remote-silent $@

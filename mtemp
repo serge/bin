@@ -1,0 +1,5 @@
+#!/bin/bash
+# Download weather observation information from bom.gov.au for the Melbourne olympic park
+meteourl=http://reg.bom.gov.au/fwo/IDV60901/IDV60901.95936.json
+#curl -s "$meteourl" | jq '.observations.data[0] | (.apparent_t |tostring) as $x| "%{F#4c4}" + $x + "C %{F#c4c}" + (.air_temp |tostring) '
+curl -s "$meteourl" | jq '.observations.data[0] | .apparent_t'

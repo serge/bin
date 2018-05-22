@@ -1,0 +1,7 @@
+#!/bin/bash
+city='Melbourne'
+xpath="/product/forecast/area[@description=\"$city\"]"
+text="/area/forecast-period[contains(@start-time-local, \"`date -d \"+1 day\" +%Y-%m-%d`\")]" 
+notify-send "$city forecast" "$(curl -s ftp://ftp.bom.gov.au/anon/gen/fwo/IDV10751.xml|xml sel -t -c "$xpath" | xml sel -t -v "$text" | sed '/^\W*$/d' | head -1)"
+
+

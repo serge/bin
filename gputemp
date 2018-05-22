@@ -1,0 +1,14 @@
+#!/bin/bash
+res=$(lsmod | grep nouveau)
+if [ -n "$res" ] ; then
+   temp=$(cat /sys/class/hwmon/hwmon2/temp1_input)
+   echo $[temp / 1000]
+else
+   res=$(grep "ON" /proc/acpi/bbswitch)
+   if [ 0 -eq $? ]
+   then
+      optirun -b primus nvidia-settings -q GPUCoreTemp -t -c :8 | sort | uniq
+   else
+      echo "OFF"
+   fi
+fi
